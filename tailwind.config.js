@@ -14,6 +14,10 @@ export default {
       },
       fontFamily: {
         poppins: 'Poppins'
+      },
+      textColor: {
+        color1: "#711DB0",
+        color2:"#C21292"
       }
     },
   },
