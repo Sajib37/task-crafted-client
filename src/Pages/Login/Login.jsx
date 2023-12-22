@@ -1,11 +1,14 @@
 import { data } from "autoprefixer";
 import login from "../../assets/images/login.jpg"
 import { useForm } from 'react-hook-form';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ScoialLogin from "../../Shared/ScoialLogin/ScoialLogin";
+import { useAuth } from "../../AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
-
+    const { emailLogin,resetPassword } = useAuth();
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -13,10 +16,24 @@ const Login = () => {
     } = useForm();
     
     const onSubmit = (data) => {
-        console.log(data)
+        emailLogin(data.email,data.password)
+            .then(res => {
+                toast.success("Login Successfully.!")
+                reset();
+            })
+            .catch(err => console.log(err))
+        
+    }
+
+    const handleResetPassword = () => {
+        resetPassword()
+            .then(res => {
+            toast.success("Please, Check your Email.")
+        })
     }
     return (
         <section className="max-w-screen-xl mx-auto flex md:flex-col-reverse gap-8 lg:flex-row justify-around items-center py-12 px-2">
+            <ToastContainer></ToastContainer>
             <div className="w-1/2 hidden md:block">
                 <img className="w-full" src={login} alt="" />
             </div>
@@ -36,7 +53,8 @@ const Login = () => {
                     <button name='submit' className={`w-full font-semibold  py-2 rounded-lg bg-bg3 text-white mt-4`}>Login</button>
                 </form>
 
-                <p className=" font-medium text-black mt-4">Don't have an account? Please, <Link className="text-color2" to='/register'>Register</Link></p>
+                <button onClick={handleResetPassword} className="text-color2 font-semibold mt-4">Forgot Password?</button>
+                <p className=" font-medium text-black mt-2">Don't have an account? Please, <Link className="text-color2" to='/register'>Register</Link></p>
                     
                 <p className="text-center mt-2  text-black font-semibold">Or sign up with </p>
                 <ScoialLogin></ScoialLogin>

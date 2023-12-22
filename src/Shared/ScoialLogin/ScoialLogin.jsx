@@ -27,12 +27,14 @@ const ScoialLogin = () => {
                         await new Promise((resolve) => setTimeout(resolve, 1000));
                         // console.log(location.state)
                         // navigate(location?.state ? location.state : '/');
-                        toast.success('Login Successfully !')
+                        
                     })
                     .catch(error => {
                         toast.error('Login Failed.!')
                         console.log(error)
-                })
+                    })
+                    toast.success('Login Successfully !')
+                    navigate('/dashboard')
             })
             .catch(err => console.log(err))
         

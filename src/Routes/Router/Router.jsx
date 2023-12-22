@@ -4,6 +4,7 @@ import Home from "../../Pages/Home/Home";
 import Dashboard from "../../Layout/Dashboard/Dashboard"
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import Features from "../../Pages/Features/Features";
 
 
 
@@ -23,11 +24,15 @@ import Register from "../../Pages/Register/Register";
                 {
                     path: "/register",
                     element: <Register></Register>
+                },
+                {
+                    path: "/feature",
+                    element: <Features></Features>
                 }
             ]
         },
         {
-            path: "Dashboard",
+            path: "dashboard",
             element:<Dashboard></Dashboard>
         }
        
