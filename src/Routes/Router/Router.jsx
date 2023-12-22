@@ -5,6 +5,7 @@ import Dashboard from "../../Layout/Dashboard/Dashboard"
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Features from "../../Pages/Features/Features";
+import AllTask from "../../Layout/Dashboard/AllTask/AllTask";
 
 
 
@@ -33,7 +34,13 @@ import Features from "../../Pages/Features/Features";
         },
         {
             path: "dashboard",
-            element:<Dashboard></Dashboard>
+            element: <Dashboard></Dashboard>,
+            children: [
+                {
+                    path: "",
+                    element: <AllTask></AllTask>
+                }
+            ]
         }
        
     ])

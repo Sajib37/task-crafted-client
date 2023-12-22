@@ -17,9 +17,11 @@ const Login = () => {
     
     const onSubmit = (data) => {
         emailLogin(data.email,data.password)
-            .then(res => {
+            .then(async res => {
                 toast.success("Login Successfully.!")
                 reset();
+                await new Promise((resolve) => setTimeout(resolve, 1000));
+                navigate("/dashboard")
             })
             .catch(err => console.log(err))
         
