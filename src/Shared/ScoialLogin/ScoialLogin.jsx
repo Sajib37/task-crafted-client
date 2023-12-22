@@ -2,14 +2,38 @@ import { FaGoogle } from "react-icons/fa";
 import { useAuth } from "../../AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import useAxiosPublic from "../../Hooks/AxiosPublic/AxiosPublic";
+import { useNavigate } from "react-router-dom";
 
 
 const ScoialLogin = () => {
     const { googleLogin } = useAuth();
+    const axiosPublic = useAxiosPublic()
+    const navigate = useNavigate();
 
     const handleGoogleLogin = () => {
         googleLogin()
-            .then(res => toast.success("Login SuccessFully.!"))
+            .then(result => {
+                // console.log(result.user)
+                const newUser = {
+                    name: result.user?.displayName,
+                    photo: result.user?.photoURL,
+                    email: result.user?.email,
+                    password: 'Login with Google',
+                }
+
+                axiosPublic.post('/users', newUser)
+                    .then(async res => {
+                        await new Promise((resolve) => setTimeout(resolve, 1000));
+                        // console.log(location.state)
+                        // navigate(location?.state ? location.state : '/');
+                        toast.success('Login Successfully !')
+                    })
+                    .catch(error => {
+                        toast.error('Login Failed.!')
+                        console.log(error)
+                })
+            })
             .catch(err => console.log(err))
         
     }

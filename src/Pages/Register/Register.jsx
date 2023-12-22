@@ -64,9 +64,7 @@ const Register = () => {
                                     name: data.name,
                                     photo: res.data.data.display_url,
                                     email: data.email,
-                                    password: data.password, role: 'common',
-                                    role: 'user',
-                                    member: 'normal'
+                                    password: data.password,
                                 }
                                 axiosPublic.post('/users', newUser)
                                     .then( async res => {
