@@ -54,8 +54,8 @@ const ModalForm = () => {
                 <input {...register('deadline')} type="date" placeholder="Enter task deadline " required className="input input-bordered w-full" />
             </div>
 
-            <select {...register('priority')} required className="input input-bordered mt-4 w-full">
-                <option disabled selected>Priority</option>
+            <select {...register('priority')} defaultValue="" required className="input input-bordered mt-4 w-full">
+                <option value="" disabled >Select Priority</option>
                 <option value="High">High</option>
                 <option value="Moderate">Moderate</option>
                 <option value="Low">Low</option>
