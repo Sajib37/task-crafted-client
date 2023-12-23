@@ -6,7 +6,7 @@ const Dashboard = () => {
     return (
         <div className='font-poppins flex'>
             <Aside></Aside>
-            <div className='w-72 hidden lg:block'></div>
+            <div className='w-96 hidden lg:block'></div>
             <Outlet></Outlet>
         </div>
     );

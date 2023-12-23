@@ -57,7 +57,7 @@ const Aside = () => {
     });
 
 
-    console.log(profile)
+    // console.log(profile)
 
     return (
         <section>
@@ -84,12 +84,12 @@ const Aside = () => {
                         </div>
                     }
                     <div className="bg-gray-300 h-[1px] w-[80%] my-4"></div>
-                    <NavLink to="createTask" className={({ isActive, isPending }) => isPending ? "text-color2" : isActive ? "text-color2 underline underline-offset-4" : ""}>
+                    <NavLink to="createtask" className={({ isActive, isPending }) => isPending ? "text-color2" : isActive ? "text-color2 underline underline-offset-4" : ""}>
                         Create New Task
                     </NavLink>
 
-                    <NavLink to="" className={({ isActive, isPending }) => isPending ? "text-color2" : isActive ? "text-color2 underline underline-offset-4" : ""}>
-                        All Tasks
+                    <NavLink to="" className={({ isActive, isPending }) => isPending ? "text-color1" : isActive ? "text-color1 " : ""}>
+                        Previous Tasks
                     </NavLink>
 
                     <NavLink to="todos" className={({ isActive, isPending }) => isPending ? "text-color2" : isActive ? "text-color2 underline underline-offset-4" : ""}>

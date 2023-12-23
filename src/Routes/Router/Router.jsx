@@ -6,6 +6,8 @@ import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Features from "../../Pages/Features/Features";
 import AllTask from "../../Layout/Dashboard/AllTask/AllTask";
+import CreateTasks from "../../Layout/Dashboard/CreateTasks/CreateTasks";
+import ToDos from "../../Layout/Dashboard/ToDos/ToDos";
 
 
 
@@ -39,6 +41,14 @@ import AllTask from "../../Layout/Dashboard/AllTask/AllTask";
                 {
                     path: "",
                     element: <AllTask></AllTask>
+                },
+                {
+                    path: "createtask",
+                    element: <CreateTasks></CreateTasks>
+                },
+                {
+                    path: "todos",
+                    element:<ToDos></ToDos>
                 }
             ]
         }
