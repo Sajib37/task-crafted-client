@@ -1,7 +1,12 @@
 import { IoCreateSharp } from "react-icons/io5";
 import ModalForm from "../../../Shared/ModalForm/ModalForm";
+import useTasks from "../../../Hooks/useTasks/useTasks";
 
 const AllTask = () => {
+
+    const [tasks, loadTask, refetch] = useTasks()
+    
+    console.log(tasks)
 
     return (
         <section className='w-full py-10 lg:mr-4 md:px-2'>

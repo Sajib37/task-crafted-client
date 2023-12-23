@@ -20,7 +20,7 @@ const ModalForm = () => {
             description: data.description,
             deadline: data.deadline,
             priority: data.priority,
-            status: data.status,
+            status: "To-Do",
             email: user?.email
         }
 
@@ -54,20 +54,13 @@ const ModalForm = () => {
                 <input {...register('deadline')} type="date" placeholder="Enter task deadline " required className="input input-bordered w-full" />
             </div>
 
-            <div className='flex gap-2 mt-3'>
+            <select {...register('priority')} required className="input input-bordered mt-4 w-full">
+                <option disabled selected>Priority</option>
+                <option value="High">High</option>
+                <option value="Moderate">Moderate</option>
+                <option value="Low">Low</option>
+            </select>
 
-                <select {...register('priority')} required className="input input-bordered w-full">
-                    <option disabled selected>Priority</option>
-                    <option value="High">High</option>
-                    <option value="Moderate">Moderate</option>
-                </select>
-                <select {...register('status')} required className="input input-bordered w-full">
-                    <option disabled selected>Status</option>
-                    <option value="To-Do">To-Do</option>
-                    <option value="Ongoing">Ongoing</option>
-                    <option value="Completed">Completed</option>
-                </select>
-            </div>
             <button name='submit' className={`w-32 mx-auto font-semibold  py-2 rounded-lg bg-bg3 text-white mt-4`}>Create</button>
         </form>
     );
