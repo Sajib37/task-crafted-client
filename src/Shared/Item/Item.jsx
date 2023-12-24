@@ -51,8 +51,8 @@ const Item = ({ todo }) => {
                 </div>
 
                 <div className="flex items-center gap-4 text-2xl mr-6">
-                    <button onClick={()=>handleItemDelete(todo._id)}><TiDeleteOutline /></button>
-                    <button onClick={()=>document.getElementById(`${todo._id}`).showModal()}><CiEdit /></button>
+                    <button className="text-red-600 rounded-lg bg-bg2" onClick={()=>handleItemDelete(todo._id)}><TiDeleteOutline /></button>
+                    <button className="bg-green-700 rounded-lg  text-white" onClick={()=>document.getElementById(`${todo._id}`).showModal()}><CiEdit /></button>
                 </div>
             </div>
 
